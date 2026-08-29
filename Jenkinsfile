@@ -3,6 +3,8 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "self-healing-demo:${BUILD_NUMBER}"
+        GEMINI_API_KEY = credentials('gemini-api-key')
+        SLACK_WEBHOOK_URL = credentials('slack-webhook-url')
     }
 
     stages {
