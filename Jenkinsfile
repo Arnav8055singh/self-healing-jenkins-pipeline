@@ -34,7 +34,7 @@ pipeline {
     post {
         failure {
             echo 'Build failed -- triggering AI diagnosis...'
-            sh 'python3 scripts/diagnose_failure.py ${JOB_NAME} ${BUILD_NUMBER}'
+            sh 'python3 diagnose_failure.py ${JOB_NAME} ${BUILD_NUMBER}'
         }
         success {
             echo 'Build succeeded!'
