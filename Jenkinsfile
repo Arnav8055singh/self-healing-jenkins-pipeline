@@ -5,6 +5,8 @@ pipeline {
         DOCKER_IMAGE = "self-healing-demo:${BUILD_NUMBER}"
         GEMINI_API_KEY = credentials('gemini-api-key')
         SLACK_WEBHOOK_URL = credentials('slack-webhook-url')
+        JENKINS_USER = 'ARNAV'
+        JENKINS_API_TOKEN = credentials('jenkins-api-token')
     }
 
     stages {
@@ -22,7 +24,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'pytest test_app.py -v'
+                sh 'python3 -m pytest test_app.py -v'
             }
         }
 
