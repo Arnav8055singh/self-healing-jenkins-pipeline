@@ -35,12 +35,22 @@ def diagnose_with_gemini(error_snippet):
                 "parts": [
                     {
                         "text": (
-                            "You are a DevOps assistant. A Jenkins CI build just "
-                            "failed. Here is the tail of the console log:\n\n"
+                            "You are a DevOps assistant analyzing a failed "
+                            "Jenkins CI build. Here is the tail of the "
+                            "console log:\n\n"
                             f"{error_snippet}\n\n"
-                            "In 4-6 sentences: (1) diagnose what most likely "
-                            "caused the failure, (2) suggest one concrete fix. "
-                            "Be specific and concise."
+                            "Respond in exactly this format:\n\n"
+                            "Quick Fix: <one line summarizing the single "
+                            "most important thing to fix>\n\n"
+                            "Details:\n"
+                            "- <what failed> | Where: <file/location> | "
+                            "Fix: <concrete fix>\n"
+                            "(add one bullet per distinct error if there "
+                            "are multiple separate errors in the log; if "
+                            "there is only one error, include just one "
+                            "bullet)\n\n"
+                            "Keep every bullet to one line. Do not add "
+                            "any commentary outside this format."
                         )
                     }
                 ]
