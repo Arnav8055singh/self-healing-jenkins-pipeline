@@ -5,7 +5,7 @@ pipeline {
         DOCKER_IMAGE = "self-healing-demo:${BUILD_NUMBER}"
         GEMINI_API_KEY = credentials('gemini-api-key')
         SLACK_WEBHOOK_URL = credentials('slack-webhook-url')
-        JENKINS_USER = 'ARNAV'
+        JENKINS_USER = 'ARNROCK'
         JENKINS_API_TOKEN = credentials('jenkins-api-token')
     }
 
